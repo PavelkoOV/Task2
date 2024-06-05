@@ -1,0 +1,28 @@
+1) Для розгортання MySQL на новій VM необхідно:
+  sudo apt update
+  sudo apt install mysql-server
+2) Входимо в MySQL
+  sudo mysql
+Створюємо базу
+  CREATE DATABASE test;
+  USE test;
+Створюємо таблицю x27_social_dialogs  згідно наданої структури:
+CREATE TABLE x27_social_dialogs ( 
+id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT, 
+id_user_from INT(11) UNSIGNED NOT NULL DEFAULT 0, 
+id_user_to INT(11) UNSIGNED NOT NULL DEFAULT 0, 
+date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+has_unanswered_msg SMALLINT(6) NOT NULL DEFAULT 0, 
+has_new_msg SMALLINT(6) NOT NULL DEFAULT 0, 
+has_premium_male SMALLINT(6) NOT NULL DEFAULT 0, 
+has_hot_male SMALLINT(6) NOT NULL DEFAULT 0, 
+has_locked_msg SMALLINT(6) NOT NULL DEFAULT 0, 
+is_bookmarked SMALLINT(6) NOT NULL DEFAULT 0, 
+is_blocked SMALLINT(6) NOT NULL DEFAULT 0, 
+is_blocked_by_male SMALLINT(6) NOT NULL DEFAULT 0, 
+is_trusted SMALLINT(6) NOT NULL DEFAULT 0, 
+is_active SMALLINT(6) NOT NULL DEFAULT 0, 
+initiator ENUM('user','operator','ai') NOT NULL, 
+has_deleted_user SMALLINT(6) NOT NULL DEFAULT 0, 
+PRIMARY KEY (id) );
