@@ -1,0 +1,14 @@
+1)
+Створюємо нового користувача pav
+  CREATE USER 'pav'@'localhost' IDENTIFIED BY '1234';
+Надаємо права SELECT
+GRANT SELECT ON test.* TO 'pav'@'localhost'; 
+FLUSH PRIVILEGES;
+Виходимо з бази. 
+  EXIT;
+Заходимо під юзером pav
+  mysql -u pav -p
+Для перевірки додаємо нове поле email в таблицю x27_social_dialogs  . 
+Запит:
+ALTER TABLE x27_social_dialogs ADD email VARCHAR(60);
+Отримав помилку: ALTER command denied to user ‘pav’@’localhost’ for table ‘x27_social_dialogs’.
