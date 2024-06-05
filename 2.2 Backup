@@ -1,0 +1,16 @@
+Бекап:
+  sudo mysqldump test > test_backup.sql
+В базі видаляю таблицю x27_social_dialogs
+  sudo mysql
+  USE test;
+  DROP TABLE x27_social_dialogs;
+Перевірка:
+  sudo mysql
+  USE test;
+  SHOW TABLES;
+Відновлює з векапа:
+  sudo mysql test < test_backup.sql
+Перевірка:
+  sudo mysql
+  USE test;
+  SHOW TABLES;
